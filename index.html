@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cecilia Borges | Psicóloga & Consultora</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --dark: #1E1E1E;
+      --accent: #1B3A6B;
+      --accent-light: #EBF0F8;
+      --muted: #6B6B6B;
+      --border: #E8E8E4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 6%;
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--dark); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 6%;
+      padding-top: 80px;
+      gap: 4rem;
+    }
+
+    .hero-content { max-width: 600px; }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--dark);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      margin-left: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .hero-cta-secondary:hover { color: var(--dark); }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-card {
+      width: 340px;
+      background: var(--accent-light);
+      border-radius: 4px;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .hero-card-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card-author {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--dark);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* SECTION BASE */
+    section { padding: 6rem 6%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    /* SOBRE */
+    #sobre {
+      background: var(--dark);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    #sobre .section-label { color: var(--accent); }
+    #sobre .section-title { color: #fff; }
+    #sobre .section-desc { color: rgba(255,255,255,0.6); max-width: 100%; }
+
+    .sobre-right { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .sobre-item {
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+    }
+
+    .sobre-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .sobre-item p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+    }
+
+    /* SERVIÇOS */
+    #servicos { background: var(--bg); }
+
+    .servicos-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .servico-card {
+      background: var(--bg);
+      padding: 2.5rem;
+      transition: background 0.2s;
+    }
+
+    .servico-card:hover { background: var(--accent-light); }
+
+    .servico-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--border);
+      display: block;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .servico-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+
+    .servico-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ABORDAGEM */
+    #abordagem {
+      background: var(--accent-light);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .abordagem-steps { display: flex; flex-direction: column; gap: 0; }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step:first-child { border-top: 1px solid var(--border); }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--accent);
+      min-width: 2rem;
+      font-style: italic;
+    }
+
+    .step-content h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* DEPOIMENTOS */
+    #depoimentos { background: var(--bg); }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .depoimento-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+
+    .depoimento-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .depoimento-autor {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* CONTATO */
+    #contato {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+    }
+
+    #contato .section-label { color: var(--accent); }
+    #contato .section-title { color: #fff; margin: 0 auto 1rem; }
+    #contato .section-desc { color: rgba(255,255,255,0.5); margin: 0 auto 2.5rem; }
+
+    .contato-form {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .contato-form input,
+    .contato-form textarea,
+    .contato-form select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      padding: 0.9rem 1.2rem;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contato-form input::placeholder,
+    .contato-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+    .contato-form input:focus,
+    .contato-form textarea:focus,
+    .contato-form select:focus { border-color: var(--accent); }
+
+    .contato-form select option { background: var(--dark); }
+
+    .contato-form textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-submit:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .contato-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .contato-info-item { text-align: center; }
+
+    .contato-info-item span {
+      display: block;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .contato-info-item a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .contato-info-item a:hover { color: #fff; }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.3);
+      padding: 2rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: rgba(255,255,255,0.6); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 5%; }
+      .nav-links { display: none; }
+      #hero { flex-direction: column; padding: 6rem 5% 4rem; gap: 2.5rem; }
+      .hero-visual { justify-content: flex-start; width: 100%; }
+      .hero-card { width: 100%; }
+      #sobre, #abordagem { grid-template-columns: 1fr; gap: 2.5rem; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .servicos-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contato-info { flex-direction: column; gap: 1.5rem; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Cecilia Borges</a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#abordagem">Abordagem</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Psicóloga & Consultora</span>
+      <h1 class="hero-title">
+        Cuidar da mente é<br/>
+        <em>cuidar da vida.</em>
+      </h1>
+      <p class="hero-subtitle">
+        Acompanhamento psicológico e consultoria para pessoas que buscam autoconhecimento, equilíbrio e clareza para avançar com confiança.
+      </p>
+      <a href="#contato" class="hero-cta">Agendar consulta</a>
+      <a href="#sobre" class="hero-cta-secondary">Conhecer mais →</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <p class="hero-card-quote">"O autoconhecimento é o início de toda transformação verdadeira."</p>
+        <span class="hero-card-author">— Cecilia Borges</span>
+        <div class="hero-stats">
+          <div>
+            <span class="stat-number">8+</span>
+            <span class="stat-label">Anos de experiência</span>
+          </div>
+          <div>
+            <span class="stat-number">200+</span>
+            <span class="stat-label">Pacientes atendidos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div>
+      <p class="section-label">Sobre mim</p>
+      <h2 class="section-title">Uma parceira na sua jornada de crescimento</h2>
+      <p class="section-desc">
+        Sou Cecilia Borges, psicóloga e consultora com formação sólida e abordagem humanizada. Acredito que cada pessoa carrega em si os recursos para a sua transformação — meu papel é ajudar a acessá-los.
+      </p>
+    </div>
+    <div class="sobre-right">
+      <div class="sobre-item">
+        <h4>Formação & Especialização</h4>
+        <p>Psicologia Clínica com especialização em Psicanálise e Psicologia Organizacional.</p>
+      </div>
+      <div class="sobre-item">
+        <h4>Atendimento Online & Presencial</h4>
+        <p>Flexibilidade para se adaptar à sua rotina, com a mesma qualidade e acolhimento.</p>
+      </div>
+      <div class="sobre-item">
+        <h4>Consultoria para Empresas</h4>
+        <p>Desenvolvimento humano, liderança consciente e bem-estar organizacional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="servicos-header">
+      <div>
+        <p class="section-label">O que ofereço</p>
+        <h2 class="section-title">Serviços</h2>
+      </div>
+      <p class="section-desc" style="max-width: 300px; font-size: 0.9rem;">
+        Cada atendimento é único, pensado para as suas necessidades específicas.
+      </p>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <span class="servico-num">01</span>
+        <h3 class="servico-title">Psicoterapia Individual</h3>
+        <p class="servico-desc">Acompanhamento contínuo para ansiedade, depressão, relacionamentos, autoestima e desenvolvimento pessoal.</p>
+      </div>
+      <div class="servico-card">
+        <span class="servico-num">02</span>
+        <h3 class="servico-title">Consultoria Pessoal</h3>
+        <p class="servico-desc">Sessões focadas em objetivos claros: tomada de decisão, transições de vida e planejamento de carreira.</p>
+      </div>
+      <div class="servico-card">
+        <span class="servico-num">03</span>
+        <h3 class="servico-title">Consultoria Empresarial</h3>
+        <p class="servico-desc">Programas de saúde mental corporativa, desenvolvimento de líderes e gestão de equipes com foco humano.</p>
+      </div>
+      <div class="servico-card">
+        <span class="servico-num">04</span>
+        <h3 class="servico-title">Avaliação Psicológica</h3>
+        <p class="servico-desc">Laudos e avaliações para fins clínicos, ocupacionais e de acompanhamento terapêutico.</p>
+      </div>
+      <div class="servico-card">
+        <span class="servico-num">05</span>
+        <h3 class="servico-title">Workshops & Palestras</h3>
+        <p class="servico-desc">Conteúdos sobre inteligência emocional, resiliência e bem-estar para grupos e empresas.</p>
+      </div>
+      <div class="servico-card">
+        <span class="servico-num">06</span>
+        <h3 class="servico-title">Testes & Avaliações Online</h3>
+        <p class="servico-desc">Instrumentos validados para autoconhecimento, perfil comportamental e saúde emocional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABORDAGEM -->
+  <section id="abordagem">
+    <div>
+      <p class="section-label">Como trabalho</p>
+      <h2 class="section-title">Uma abordagem que respeita o seu tempo</h2>
+      <p class="section-desc">
+        Meu método combina escuta ativa, embasamento científico e sensibilidade humana. Cada processo é construído junto com você.
+      </p>
+    </div>
+    <div class="abordagem-steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h4>Escuta & Acolhimento</h4>
+          <p>Criamos um espaço seguro para você se expressar sem julgamentos.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h4>Compreensão do Contexto</h4>
+          <p>Mapeamos juntos sua história, padrões e o que deseja transformar.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h4>Plano Personalizado</h4>
+          <p>Definimos objetivos e ferramentas adequadas ao seu perfil e ritmo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h4>Acompanhamento Contínuo</h4>
+          <p>Seguimos lado a lado, ajustando o percurso conforme você evolui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <p class="section-label">Depoimentos</p>
+    <h2 class="section-title">O que dizem sobre o processo</h2>
+    <div class="depoimentos-grid">
+      <div class="depoimento-card">
+        <p class="depoimento-text">"As sessões com a Cecilia me ajudaram a entender padrões que eu repetia há anos. Hoje me sinto muito mais leve e segura nas minhas decisões."</p>
+        <span class="depoimento-autor">— Ana P., Executiva</span>
+      </div>
+      <div class="depoimento-card">
+        <p class="depoimento-text">"A consultoria para nossa equipe transformou o ambiente de trabalho. Mais diálogo, menos conflito e resultados muito melhores."</p>
+        <span class="depoimento-autor">— Ricardo M., CEO</span>
+      </div>
+      <div class="depoimento-card">
+        <p class="depoimento-text">"Cheguei perdida e sem direção. A Cecilia me ajudou a reconectar com o que realmente importa para mim. Mudou minha vida."</p>
+        <span class="depoimento-autor">— Mariana L., Professora</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <p class="section-label">Vamos conversar</p>
+    <h2 class="section-title">Agende sua consulta</h2>
+    <p class="section-desc">Dê o primeiro passo. Preencha o formulário e entro em contato em até 24 horas.</p>
+    <form class="contato-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu e-mail" required />
+      </div>
+      <input type="tel" placeholder="WhatsApp (opcional)" />
+      <select required>
+        <option value="" disabled selected>Qual serviço te interessa?</option>
+        <option>Psicoterapia Individual</option>
+        <option>Consultoria Pessoal</option>
+        <option>Consultoria Empresarial</option>
+        <option>Avaliação Psicológica</option>
+        <option>Workshops & Palestras</option>
+        <option>Testes Online</option>
+      </select>
+      <textarea placeholder="Conta um pouco sobre o que você está buscando..."></textarea>
+      <button type="submit" class="btn-submit">Enviar mensagem</button>
+    </form>
+    <div class="contato-info">
+      <div class="contato-info-item">
+        <span>E-mail</span>
+        <a href="mailto:contato@ceciliaborges.com">contato@ceciliaborges.com</a>
+      </div>
+      <div class="contato-info-item">
+        <span>WhatsApp</span>
+        <a href="https://wa.me/5500000000000" target="_blank">Chamar no WhatsApp</a>
+      </div>
+      <div class="contato-info-item">
+        <span>Instagram</span>
+        <a href="https://instagram.com" target="_blank">@ceciliaborges</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Cecilia Borges — Psicóloga & Consultora</span>
+    <span>CRP: XX/XXXXX</span>
+    <a href="#">Política de Privacidade</a>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.textContent = 'Mensagem enviada ✓';
+      btn.style.background = '#1B3A6B';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Enviar mensagem';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
